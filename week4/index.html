@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>🦁 아기 사자 관리 시스템</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="control-panel">
+            <div class="button-row">
+                <button id="btn-toggle-form">아기 사자 추가</button>
+                <button id="btn-delete-last">마지막 사자 삭제</button>
+                <span class="stats">전체 사자: <span id="total-count">0</span>명</span>
+            </div>
+            <div class="button-row">
+                <button id="btn-add-1">랜덤 1명 추가</button>
+                <button id="btn-add-5">랜덤 5명 추가</button>
+                <button id="btn-refresh-all">데이터 새로고침</button>
+                <span id="status-text">대기 중</span>
+                <button id="btn-retry" class="hidden">재시도</button>
+            </div>
+            <div class="filter-row">
+                <div class="filter-item">
+                    <label>파트 필터</label>
+                    <select id="filter-part">
+                        <option value="all">전체</option>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Design">Design</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>정렬</label>
+                    <select id="sort-order">
+                        <option value="newest">최신순</option>
+                        <option value="name">이름순</option>
+                    </select>
+                </div>
+                <div class="filter-item search">
+                    <label>검색</label>
+                    <input type="text" id="search-name" placeholder="사자 이름 입력">
+                </div>
+            </div>
+        </header>
+
+        <section id="form-section" class="hidden">
+            <div class="form-card">
+                <h3>사자 정보 등록/수정</h3>
+                <form id="lion-form">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>이름</label>
+                            <input type="text" id="input-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>파트</label>
+                            <select id="input-part">
+                                <option value="Frontend">Frontend</option>
+                                <option value="Backend">Backend</option>
+                                <option value="Design">Design</option>
+                            </select>
+                        </div>
+                        <div class="input-group full">
+                            <label>핵심 기술 (쉼표 구분)</label>
+                            <input type="text" id="input-tech" placeholder="예: React, Figma, Java">
+                        </div>
+                        <div class="input-group full">
+                            <label>한 줄 소개</label>
+                            <input type="text" id="input-bio">
+                        </div>
+                        <div class="input-group full">
+                            <label>상세 자기소개</label>
+                            <textarea id="input-desc"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>이메일</label>
+                            <input type="email" id="input-email">
+                        </div>
+                        <div class="input-group">
+                            <label>연락처</label>
+                            <input type="text" id="input-phone">
+                        </div>
+                    </div>
+                    <input type="hidden" id="input-img-url">
+
+                    <div class="form-footer">
+                        <button type="button" id="btn-fill-random" class="btn-magic">랜덤 값 채우기</button>
+                        <div class="main-btns">
+                            <button type="submit" class="btn-submit">저장하기</button>
+                            <button type="button" id="btn-close-form">취소</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <main id="card-grid" class="grid-container"></main>
+
+        <section id="summary-list" class="list-container"></section>
+        
+        <div id="no-data" class="hidden">조건에 맞는 사자가 없습니다.</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
