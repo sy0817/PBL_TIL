@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아기 사자 명단 관리</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="control-panel">
+            <div class="control-box">
+                <button id="add-toggle-btn" class="btn">아기 사자 추가</button>
+                <button id="delete-last-btn" class="btn">마지막 아기 사자 삭제</button>
+                <span class="count-text">총 <span id="total-count">0</span>명</span>
+            </div>
+        </header>
+
+        <section id="form-section" class="form-container hidden">
+            <form id="lion-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>이름</label>
+                        <input type="text" name="name" placeholder="예: 홍아기사자" required>
+                    </div>
+                    <div class="form-group">
+                        <label>파트</label>
+                        <select name="part" required>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>관심 기술 (쉼표로 구분)</label>
+                        <input type="text" name="tech" placeholder="예: JavaScript, React, HTML/CSS" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>한 줄 소개 (요약 카드)</label>
+                        <input type="text" name="summary" placeholder="예: 3주차 DOM 조작 연습 중!" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>자기소개 (상세 카드)</label>
+                        <textarea name="bio" rows="3" placeholder="내용을 입력해주세요." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="lion@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" placeholder="010-1234-5678" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Website</label>
+                        <input type="url" name="website" placeholder="https://example.com" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>한 마디</label>
+                        <input type="text" name="motto" placeholder="열심히 하겠습니다!" required>
+                    </div>
+                </div>
+                <div class="form-btns">
+                    <button type="submit" class="btn btn-black">추가하기</button>
+                    <button type="button" id="cancel-btn" class="btn">취소</button>
+                </div>
+            </form>
+        </section>
+
+        <div id="summary-grid" class="card-grid"></div>
+
+        <div id="detail-list" class="detail-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
